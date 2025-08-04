@@ -1,15 +1,21 @@
 # LoL
 ```mermaid
 flowchart TD
-    A([Start]) --> B([User opens app/game])
-    B --> C{User makes a choice}
-    C -->|Choice 1| D([Process 1: App/Game responds to Choice 1])
-    C -->|Choice 2| E([Process 2: App/Game responds to Choice 2])
-    C -->|Choice 3| F([Process 3: App/Game responds to Choice 3])
-    D --> G([Outcome 1: Result for the user])
-    E --> H([Outcome 2: Result for the user])
-    F --> I([Outcome 3: Result for the user])
-    G --> J([End])
-    H --> J
-    I --> J
+    A([Start]) --> B([Display First Question])
+    B --> C{Did the user input an answer?}
+    C -->|Yes| D([Check Answer])
+    C -->|No| E([Show Reminder: "Please answer before proceeding"])
+    E --> B
+
+    D --> F{Are there more questions?}
+    F -->|Yes| G([Display Next Question])
+    G --> H{Did the user input an answer?}
+    H -->|Yes| I([Check Answer])
+    H -->|No| J([Show Reminder: "Please answer before proceeding"])
+    J --> G
+
+    I --> F
+
+    F -->|No| K([Display Score])
+    K --> L([End])
 ```
