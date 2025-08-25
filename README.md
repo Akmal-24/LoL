@@ -1,27 +1,17 @@
+```markdown
+# Multiplication Quiz Game - Flowchart
+
 ```mermaid
 flowchart TD
-    A([Start])
-    B1[Process Step 1: Initialize System]
-    B2[Process Step 2: Validate Input]
-    B3[Process Step 3: Perform Operation]
-    D1{Decision: Is Input Valid?}
-    D2{Decision: Did Operation Succeed?}
-    E1[Error: Invalid Input - Show Error Message 1]
-    E2[Error: Operation Failed - Show Error Message 2]
-    E3[Error: Retry Limit Reached - Fallback]
-    E4[Error: Unexpected Exception - Log & Notify]
-    F([End])
-
-    A --> B1 --> B2 --> D1
-    D1 -- Yes --> B3 --> D2
-    D1 -- No --> E1 --> F
-    D2 -- Yes --> F
-    D2 -- No --> E2 --> E3
-    E3 --> F
-    B3 -- Exception --> E4 --> F
+    A[Start Game] --> B[Display Welcome Screen]
+    B --> C[Display Multiplication Question]
+    C --> D[Get User's Answer]
+    D --> E{Is Answer Correct?}
+    E -- Yes --> F[Add Score]
+    E -- No --> G[Show Correct Answer]
+    F --> H{More Questions?}
+    G --> H
+    H -- Yes --> C
+    H -- No --> I[End Game]
 ```
-- **Error Scenarios:**
-  1. Invalid input (Error Message 1)
-  2. Operation failure (Error Message 2)
-  3. Retry limit reached (Fallback)
-  4. Unexpected exception (Log & Notify)
+```
